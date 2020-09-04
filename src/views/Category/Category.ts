@@ -9,14 +9,16 @@ interface Question {
 }
 
 export const category = reactive({
-  title: 'category สุดมันส์',
-  background: 'https://images.unsplash.com/photo-1484503753579-5a70ce11a6ff?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=tim-trad-190770-unsplash.jpg',
-  get nrow() { return Number(ls.get('nrow')) || 5 },
-  get ncol() { return Number(ls.get('ncol')) || 5 },
-  set nrow(val: number) { ls.set('nrow', val) },
-  set ncol(val: number) { ls.set('ncol', val) },
-  get questions() { return JSON.parse(ls.get('questions') || '[]') as Question[] },
-  set questions(value) { ls.set('questions', JSON.stringify(value)) },
+  get title() { return ls.get('category-title') || 'category สุดมันส์' },
+  set title(val: string) { ls.set('category-title', val) },
+  get background() { return ls.get('category-background') || 'https://images.unsplash.com/photo-1484503753579-5a70ce11a6ff?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=tim-trad-190770-unsplash.jpg' },
+  set background(val: string) { ls.set('category-background', val) },
+  get nrow() { return Number(ls.get('category-nrow')) || 5 },
+  set nrow(val: number) { ls.set('category-nrow', val)  },
+  get ncol() { return Number(ls.get('category-ncol')) || 5 },
+  set ncol(val: number) { ls.set('category-ncol', val)  },
+  get questions() { return JSON.parse(ls.get('category-questions') || '[]') as Question[] },
+  set questions(value) { ls.set('category-questions', JSON.stringify(value)) },
 })
 
 export function clear_questions() {
@@ -29,9 +31,7 @@ export function clear_questions() {
 export function question_set_visible(i: number, visible: boolean) {
   let new_questions = cloneDeep(category.questions)
   set(new_questions, [i, 'visible'], visible)
-  console.log("functionquestion_set_visible -> category.questions", category.questions[0].visible)
   category.questions = new_questions
-  console.log("functionquestion_set_visible -> category.questions", category.questions[0].visible)
 }
 export function question_set_message(i: number, message: string) {
   let new_questions = cloneDeep(category.questions)
@@ -55,7 +55,6 @@ export function parse_questions(str: string) {
       message: res ? res[1] : '', 
       visible: get(category.questions, [i, 'visible'], false)
     }
-    if (i==0) console.log(new_q)
     return new_q
   })
   return ok ? new_questions : null

@@ -34,13 +34,14 @@
 </template>
 
 <script lang='ts'>
-import { computed, defineComponent, ref } from "vue";
+import { computed, defineComponent, onMounted, ref } from "vue";
 import { get } from "lodash";
 import Modal from "buefy/src/components/modal/Modal.vue"
 
-import { category, question_set_visible } from './Category'
+import { category, clear_questions, question_set_visible } from './Category'
 import FlipVue from '../../components/Flip.vue';
 import CategorySetting from './CategorySetting.vue';
+import { isEmpty } from "lodash";
 
 export default defineComponent({
   components: {
@@ -49,6 +50,11 @@ export default defineComponent({
     CategorySetting,
   },
   setup() {
+    onMounted(() => {
+      if (isEmpty(category.questions)) {
+        clear_questions()
+      }
+    })
     const focus_idx = ref(-1)
     const focus_question = computed(() => get(category.questions, focus_idx.value) || { message: 'not exist', visible: false })
     const visible_setting = ref(false);

@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:github": "vue-cli-service build --dest docs",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy:github": "yarn build:github; git add .; git commit -m 'update github page'; git push"
   },
   "dependencies": {
     "@types/lodash": "^4.14.161",
