@@ -1,24 +1,6 @@
-# category
+# category สุดมันส์
 
-## Project setup
-```
-yarn install
-```
+[https://category.krist7599555.com](https://category.krist7599555.com)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+![](public/og.png)
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
