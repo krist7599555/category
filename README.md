@@ -1,7 +1,5 @@
 # category สุดมันส์
 
-<game-category.krist7599555.com>
+<http://game-category.krist7599555.com>
 
-![](public/og.png)
-
-
+![screenshot](public/og.png)
