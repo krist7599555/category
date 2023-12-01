@@ -1,8 +1,5 @@
-module.exports = {
-  purge: [],
-  future: {
-    removeDeprecatedGapUtilities: true
-  },
+export default {
+  content: ['./src/**/*.{vue,ts}'],
   theme: {
     extend: {},
   },

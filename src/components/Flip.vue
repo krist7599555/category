@@ -17,10 +17,10 @@
   </div>
 </template>
 
-<script>
+<script lang='ts'>
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'flip',
+  name: 'flip-card',
   props: {
     'activeClick': {
       type: Boolean,
@@ -50,7 +50,11 @@ export default defineComponent({
   },
   computed: {
     cardStyle() {
-      const result = {}
+      const result = {
+        width: '',
+        height: '',
+        transition: '',
+      }
 
       if (this.height) {
         result.height = this.height.includes('%') ? '100%' : this.height

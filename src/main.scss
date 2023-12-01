@@ -1,5 +1,5 @@
 // Import Bulma's core
-@import "~bulma/sass/utilities/_all";
+@import "bulma/sass/utilities/_all";
 
 // Set your colors
 $primary: #8c67ef;
@@ -27,12 +27,12 @@ $link-invert: $primary-invert;
 $link-focus-border: $primary;
 
 // Import Bulma and Buefy styles
-@import "~bulma";
-@import "~buefy/src/scss/buefy";
+@import "bulma/bulma.sass";
+@import "buefy/src/scss/buefy";
 
-@import "~tailwindcss/base";
-@import "~tailwindcss/components";
-@import "~tailwindcss/utilities";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 .modal-background {
   background-color: rgba(10, 10, 10, 0.95) !important;
